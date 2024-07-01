@@ -41,6 +41,7 @@ public class TreeNode {
     }
 
     static void print2DUtil(TreeNode root, int space) {
+        // Base case
         if (root == null)
             return;
         space += COUNT;
