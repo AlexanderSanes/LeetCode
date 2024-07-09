@@ -27,6 +27,23 @@ public class ListNode {
         return tmp;
     }
 
+    public static ListNode intersect(int[] arrB, int skipA, int skipB, ListNode headA) {
+        ListNode intersectNode = headA;
+        while (skipA-- > 0)
+            intersectNode = intersectNode.next;
+        int i = 0;
+        ListNode headB = new ListNode();
+        ListNode tmp = headB;
+        while (i != skipB - 1) {
+            headB.val = arrB[i++];
+            headB.next = new ListNode();
+            headB = headB.next;
+        }
+        headB.val = arrB[i];
+        headB.next = intersectNode;
+        return tmp;
+    }
+
     public void makeCycle(int pos) {
         if (pos >= 0) {
             ListNode cycleNode = this;
